@@ -1,4 +1,5 @@
-﻿
+﻿Author: Kavitha Acharya
+
 This project is built with React.js,HTML5,CSS3 and Axios to call teh API.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

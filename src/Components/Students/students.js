@@ -1,5 +1,5 @@
 import React from "react";
-import Student from "../Student/Student";
+import Student from './Student/Student';
 import Classes from "./students.css";
 import Search from "../Search/Search";
 

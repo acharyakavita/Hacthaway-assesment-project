@@ -1,7 +1,7 @@
 import React from "react";
-import Classes from "./Student.css";
-import Toggle from "../Toggle/Toggle";
-import DropdownData from "../DropdownData/DropdownData";
+import Classes from './Student.css';
+import Toggle from "../../Toggle/Toggle";
+import DropdownData from '../../DropdownData/DropdownData';
 
 /*renders each student data */
 const student = props => {
