@@ -1,0 +1,10 @@
+.Tag {
+    width:15%;
+    background-color:rgb(202, 202, 202);
+    margin:2%;
+    border-radius:5px;
+}
+
+.Tag p{
+    text-align: center;
+}

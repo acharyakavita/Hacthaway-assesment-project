@@ -1,0 +1,17 @@
+.Search {
+    width:100%;
+}
+
+.Search input {
+    width:96%;
+    margin:0 2%;
+    height:50px;
+    font-size:20px;
+    border:none;
+    border-bottom:1px solid rgb(192, 192, 192);
+    outline:0;
+}
+
+.Search input::placeholder {
+     color: rgb(189, 189, 189); 
+ }

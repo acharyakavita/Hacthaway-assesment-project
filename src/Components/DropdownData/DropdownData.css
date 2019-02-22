@@ -1,0 +1,9 @@
+.GradesData {
+    width: 32%;
+    margin: 1% 40% 1% 28%; 
+}
+
+.TagsData {
+    display: flex;
+    flex-direction: horizontal;
+}
