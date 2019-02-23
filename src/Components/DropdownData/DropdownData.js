@@ -2,7 +2,7 @@ import React from "react";
 import Classes from "./DropdownData.css";
 import Search from "../Search/Search";
 import Tag from "../Tag/Tag";
-
+import uuid from 'uuid'
 /*additional grades data and tags information*/
 const dropdownData = props => {
   /*each test data is rendered*/
@@ -13,10 +13,9 @@ const dropdownData = props => {
       </p>
     );
   });
-
   /*Each tag data of a student rendered*/
-  let tagData = props.tags.map((tag, i = 0) => {
-    return <Tag data={tag} key={props.name + i + 1} />;
+  let tagData = props.tags.map((tag, i =   0) => {
+    return <Tag data={tag} key={uuid.v4()} />;
   });
 
   return (

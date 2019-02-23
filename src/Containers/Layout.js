@@ -9,7 +9,8 @@ class Layout extends Component {
     data: false,
     name: "",
     tag: "",
-    filteredStudents: []
+    filteredStudents: [],
+    error:''
   };
 
   /*React life cycle method to fetch data from API*/
@@ -25,11 +26,12 @@ class Layout extends Component {
         /*state update with new data*/
         this.setState({
           students: response.data.students,
-          data: true
+          data: true,
+          error:''
         });
       })
       .catch(err => {
-        console.log(err);
+        this.setState({error:err})
       });
   }
 
@@ -37,6 +39,7 @@ class Layout extends Component {
   /*input is read from the application(Name input) and is checked against first name and last name of each student. If a match is found,
   then student is being added to the new array(filteredStudents) which is then rendered on the screen*/
   searchByNameHandler(event) {
+    //console.log(this.state.filteredStudents)
     this.setState({ name: event.target.value }, () => {
       let matchedStudents = [];
       for (let student of this.state.students) {
@@ -52,6 +55,7 @@ class Layout extends Component {
         }
       }
       this.setState({ filteredStudents: matchedStudents });
+      console.log(this.state.filteredStudents)
     });
   }
 
@@ -65,6 +69,7 @@ class Layout extends Component {
         for (let tag of student.tags) {
           if (tag.toLowerCase().startsWith(this.state.tag.toLowerCase())) {
             matchedStudents.push(student);
+            break;
           }
         }
       }
@@ -101,15 +106,16 @@ class Layout extends Component {
 
   /*render method*/
   render() {
-    let data;
+    let data=null;
     /*check to render all students or filtered students*/
     if (this.state.name.length > 0 || this.state.tag.length > 0) {
       data = this.state.filteredStudents;
     } else {
       data = this.state.students;
     }
-    /*check to render only if there is student data available*/
-    return this.state.data ? (
+
+    /*check to render student data only if data is available*/
+    return this.state.data ? 
       <Students
         data={data}
         searchByName={event => this.searchByNameHandler(event)}
@@ -119,7 +125,9 @@ class Layout extends Component {
         toggle={this.onToggleHandler}
         addTagInput={this.addTagInputHandler}
       />
-    ) : null;
+     : this.state.error.length>0?
+     <p>{this.state.error}</p>:
+     <p>No students data to display</p>;
   }
 }
 
